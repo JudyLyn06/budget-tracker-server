@@ -1,7 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const port = process.env.PORT || 3000;
+
+require("dotenv").config();
+
+const port = process.env.PORT || 4000;
+const MONGODB_URI = process.env.MONGODB_URI;
+
+if (!MONGODB_URI) {
+  throw new Error("❌ Missing MONGODB_URI. Check your .env file.");
+}
+
 
 const userRoutes = require('./routes/userRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
@@ -13,7 +22,7 @@ const app = express();
 
 
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(MONGODB_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });
