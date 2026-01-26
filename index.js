@@ -8,7 +8,7 @@ const port = process.env.PORT || 4000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
-  throw new Error("❌ Missing MONGODB_URI. Check your .env file.");
+  throw new Error("Missing MONGODB_URI. Check your .env file.");
 }
 
 
