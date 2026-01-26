@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const port = 4000;
+const port = process.env.PORT || 3000;
 
 const userRoutes = require('./routes/userRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
@@ -13,7 +13,7 @@ const app = express();
 
 
 
-mongoose.connect('mongodb+srv://dbUser:dbUser@zuitt.ri5rh.mongodb.net/budgetTracker?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });

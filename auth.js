@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const secret = 'BudgetTrackerJudy';
+const secret = process.env.SECRET;
 
 
 module.exports.createAccessToken = (user) => {
