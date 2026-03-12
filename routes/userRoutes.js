@@ -23,6 +23,13 @@ router.post('/login', (req, res) => {
 })
 
 
+//Google Login
+// google login
+router.post('/google-login', (req, res) => {
+  UserController.googleLogin(req.body).then(result => res.send(result));
+});
+
+
 //get credentials of authenticated user
 router.get('/details', verify, (req, res) => {
 	UserController.getDetails(req.user.id).then(result => res.send(result));
